@@ -43,7 +43,7 @@
     "eslint-config-airbnb": "^6.1.0",
     "eslint-plugin-import": "^1.1.0",
     "eslint": "^2.4.0",
-    "nodemailer-mandrill-transport": "^1.1.0",
+    "nodemailer-mandrill-transport": "^1.2.0",
     "nodemon": "^1.9.1",
     "tap-spec": "^4.1.1",
     "tape": "^4.5.1"
