@@ -28,7 +28,7 @@
   "dependencies": {
     "email-templates": "^2.2.0",
     "magnet-core": "^1.1.0",
-    "node-sass": "^3.4.2",
+    "node-sass": "^3.11.1",
     "nodemailer": "^2.3.0"
   },
   "devDependencies": {
