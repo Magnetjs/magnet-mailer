@@ -46,7 +46,7 @@
     "nodemailer-mandrill-transport": "^1.1.0",
     "nodemon": "^1.9.1",
     "tap-spec": "^4.1.1",
-    "tape": "^4.5.1"
+    "tape": "^4.6.3"
   },
   "repository": {
     "type": "git",
