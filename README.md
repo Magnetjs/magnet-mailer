@@ -1,4 +1,4 @@
-Magnet wrapper for [Nodemailer](https://github.com/andris9/Nodemailer)
+Magnet wrapper for [Nodemailer](https://nodemailer.com/about/)
 
 ### Usage
 Basic
@@ -10,35 +10,24 @@ import Mailer from 'magnet-mailer';
 
 let app = await magnet([Config, Logger, Mailer]);
 
-let response = await app.app.mailer.sendWithTemplate(
-  'newsletter', {
-    from: 'kievechua@hihibi.com',
-    to: 'kievechua@gmail.com',
-    subject: 'hello',
-    text: 'hello world!'
-  }, {
-    email: 'mister.geppetto@spaghetti.com',
-    name: {
-      first: 'Mister',
-      last: 'Geppetto'
-    }
-  }
-);
+let response = await app.mailer.nodemailer.sendMail({
+  from: 'from-kievechua@example.com',
+  to: 'to-kievechua@example.com',
+  subject: 'Yo',
+  text: 'Hola'
+})
 ```
 server/config/mailer.js
 ```
-import mandrillTransport from 'nodemailer-mandrill-transport';
+import mg from 'nodemailer-mailgun-transport'
+import htmlToText from 'nodemailer-html-to-text'
 
 export default {
   plugins: {
-    compile: 'markdown(options)',
-    stream: 'signer(options)'
+    compile: htmlToText()
   },
-  
-  // By SMTP
-  // https://github.com/nodemailer/nodemailer#set-up-smtp
-  type: 'smtp',
-  options: {
+
+  transport: {
     host: 'smtp.gmail.com',
     port: 465,
     secure: true, // use SSL
@@ -48,15 +37,11 @@ export default {
     }
   },
 
-  // Custom transport
-  type: 'custom',
-  customTransport: mandrillTransport({
+  transport: mg({
     auth: {
-      apiKey: 'apiKey'
+      api_key: 'apiKey',
+      domain: 'magnet.js.org'
     }
   })
-};
+}
 ```
-
-### TODO
-Look into [Mailman](https://github.com/vdemedes/mailman) maybe?
