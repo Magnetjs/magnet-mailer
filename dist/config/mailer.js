@@ -1,18 +1,21 @@
-'use strict';
+"use strict";
 
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-// import mandrillTransport from 'nodemailer-mandrill-transport';
+// https://nodemailer.com/about/
+// import mandrillTransport from 'nodemailer-mandrill-transport'
+// import htmlToText from 'nodemailer-html-to-text'
 
 exports.default = {
-  plugins: {},
-  templatePath: 'server/emails'
+  // plugins: {
+  //   compile: htmlToText(),
+  //   stream: 'signer(options)'
+  // }
 
   // // By SMTP
   // // https://github.com/nodemailer/nodemailer#set-up-smtp
-  // type: 'smtp',
-  // options: {
+  // transport: {
   //   host: 'smtp.gmail.com',
   //   port: 465,
   //   secure: true, // use SSL
@@ -22,16 +25,9 @@ exports.default = {
   //   }
   // },
   //
-  // // // By plugin
-  // // type: 'transport',
-  // // plugin: mandrillTransport({
-  // //   auth: {
-  // //     apiKey: 'someid'
-  // //   }
-  // // }),
-  //
-  // plugins: {
-  //   compile: 'markdown(options)',
-  //   stream: 'signer(options)'
-  // }
+  // transport: mandrillTransport({
+  //   auth: {
+  //     apiKey: 'apiKey'
+  //   }
+  // })
 };
