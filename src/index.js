@@ -4,7 +4,7 @@ import defaultConfig from './config/mailer'
 
 export default class Mailer extends Base {
   async setup () {
-    let config = Object.assign(defaultConfig, this.config.mailer)
+    let config = Object.assign(defaultConfig, this.config.mailer, this.options)
 
     // create reusable transporter method (opens pool of SMTP connections)
     this.app.nodemailer = nodemailer.createTransport(config.transport)
