@@ -1,118 +1,72 @@
 {
   "name": "magnet-mailer",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "description": "Magnet adapter for nodemailer + email template",
-  "scripts": {
-    "prepublish": "npm run build",
-    "build": "babel src --out-dir dist",
-    "start": "babel src --out-dir dist",
-    "test": "babel-node tests/index.js | tap-spec",
-    "watch": "nodemon --ignore dist --exec \"babel src\" --out-dir dist",
-    "watch-test": "nodemon --delay 0.5 --ignore src --exec babel-node tests/index.js | tap-spec",
-    "watch-all": "concurrently \"npm run watch\" \"npm run watch-test\""
-  },
-  "main": "dist/index.js",
   "keywords": [
+    "email",
     "magnet",
     "magnetjs",
     "mailer",
-    "nodemailer",
-    "email"
+    "nodemailer"
   ],
-  "author": "Kieve Chua <kievechua@gmail.com> (https://github.com/kievechua)",
+  "homepage": "https://github.com/Magnetjs/magnet-mailer#readme",
+  "bugs": {
+    "url": "https://github.com/Magnetjs/magnet-mailer/issues"
+  },
   "license": "MIT",
+  "author": "Kieve Chua <kievechua@gmail.com> (https://github.com/kievechua)",
   "files": [
     "README",
     "CHANGELOG.md",
     "dist"
   ],
+  "main": "dist/index.js",
+  "repository": "magnetjs/magnet-mailer",
+  "scripts": {
+    "build": "babel src --out-dir dist",
+    "dist": "npm run build && npm publish",
+    "start": "babel src --out-dir dist",
+    "test": "babel-node tests/index.js | tap-spec",
+    "watch": "nodemon --ignore dist --exec \"babel src\" --out-dir dist",
+    "watch-all": "concurrently \"npm run watch\" \"npm run watch-test\"",
+    "watch-test": "nodemon --delay 0.5 --ignore src --exec babel-node tests/index.js | tap-spec"
+  },
+  "babel": {
+    "ignore": [
+      "docs",
+      "node_modules",
+      "dist",
+      "test"
+    ],
+    "plugins": [
+      "fast-async"
+    ],
+    "presets": [
+      [
+        "env",
+        {
+          "targets": {
+            "node": "current"
+          }
+        }
+      ]
+    ]
+  },
   "dependencies": {
-    "magnet-core": "^3.1.1",
+    "magnet-core": "^3.3.0",
     "nodemailer": "^3.0.2"
   },
   "devDependencies": {
-    "babel-cli": "^6.6.5",
-    "babel-core": "^6.7.7",
-    "babel-plugin-transform-async-to-generator": "^6.7.0",
-    "babel-plugin-transform-runtime": "^6.6.0",
-    "babel-preset-es2015": "^6.6.0",
-    "babel-preset-stage-0": "^6.5.0",
-    "concurrently": "^3.1.0",
+    "babel-cli": "^6.23.0",
+    "babel-preset-env": "^1.1.8",
+    "concurrently": "^3.3.0",
+    "fast-async": "^6.2.0",
     "nodemon": "^1.9.1",
     "standard": "^8.6.0",
     "tap-spec": "^4.1.1",
     "tape": "^4.5.1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/Magnetjs/magnet-mailer.git"
-  },
-  "bugs": {
-    "url": "https://github.com/Magnetjs/magnet-mailer/issues"
-  },
-  "homepage": "https://github.com/Magnetjs/magnet-mailer#readme",
-  "babel": {
-    "presets": [
-      "es2015",
-      "stage-0"
-    ],
-    "plugins": [
-      "transform-async-to-generator"
-    ]
-  },
-  "eslintConfig": {
-    "extends": "eslint-config-airbnb",
-    "env": {
-      "browser": true,
-      "node": true,
-      "mocha": true
-    },
-    "rules": {
-      "react/jsx-uses-react": 2,
-      "react/jsx-uses-vars": 2,
-      "react/react-in-jsx-scope": 2,
-      "react/jsx-quotes": 0,
-      "react/no-multi-comp": 0,
-      "import/default": 0,
-      "import/no-duplicates": 0,
-      "import/named": 0,
-      "import/namespace": 0,
-      "import/no-unresolved": 0,
-      "import/no-named-as-default": 2,
-      "jsx-quotes": 2,
-      "block-scoped-var": 0,
-      "padded-blocks": 0,
-      "comma-dangle": 0,
-      "indent": [
-        2,
-        2,
-        {
-          "SwitchCase": 1
-        }
-      ],
-      "no-console": 0,
-      "no-alert": 0
-    },
-    "plugins": [
-      "import"
-    ],
-    "settings": {
-      "import/parser": "babel-eslint",
-      "import/resolve": {
-        "moduleDirectory": [
-          "node_modules",
-          "src"
-        ]
-      }
-    },
-    "globals": {
-      "__DEVELOPMENT__": true,
-      "__CLIENT__": true,
-      "__SERVER__": true,
-      "__DISABLE_SSR__": true,
-      "__DEVTOOLS__": true,
-      "socket": true,
-      "webpackIsomorphicTools": true
-    }
+  "engines": {
+    "node": ">=6.9.5"
   }
 }
