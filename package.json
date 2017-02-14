@@ -27,7 +27,7 @@
     "dist"
   ],
   "dependencies": {
-    "magnet-core": "^3.1.1",
+    "magnet-core": "^3.3.0",
     "nodemailer": "^3.0.2"
   },
   "devDependencies": {
