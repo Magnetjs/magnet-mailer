@@ -1,6 +1,6 @@
 {
   "name": "magnet-mailer",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "description": "Magnet adapter for nodemailer + email template",
   "keywords": [
     "email",
@@ -23,44 +23,20 @@
   "main": "dist/index.js",
   "repository": "magnetjs/magnet-mailer",
   "scripts": {
-    "build": "babel src --out-dir dist",
+    "build": "tsc",
     "dist": "npm run build && npm publish",
-    "start": "babel src --out-dir dist",
+    "start": "tsc",
     "test": "babel-node tests/index.js | tap-spec",
     "watch": "nodemon --ignore dist --exec \"babel src\" --out-dir dist",
     "watch-all": "concurrently \"npm run watch\" \"npm run watch-test\"",
     "watch-test": "nodemon --delay 0.5 --ignore src --exec babel-node tests/index.js | tap-spec"
-  },
-  "babel": {
-    "ignore": [
-      "docs",
-      "node_modules",
-      "dist",
-      "test"
-    ],
-    "plugins": [
-      "fast-async"
-    ],
-    "presets": [
-      [
-        "env",
-        {
-          "targets": {
-            "node": "current"
-          }
-        }
-      ]
-    ]
   },
   "dependencies": {
     "magnet-core": "^3.3.0",
     "nodemailer": "^3.0.2"
   },
   "devDependencies": {
-    "babel-cli": "^6.23.0",
-    "babel-preset-env": "^1.1.8",
     "concurrently": "^3.3.0",
-    "fast-async": "^6.2.0",
     "nodemon": "^1.9.1",
     "standard": "^8.6.0",
     "tap-spec": "^4.1.1",
