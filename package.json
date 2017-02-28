@@ -32,7 +32,7 @@
     "watch-test": "nodemon --delay 0.5 --ignore src --exec babel-node tests/index.js | tap-spec"
   },
   "dependencies": {
-    "magnet-core": "^3.3.0",
+    "magnet-core": "^3.5.2",
     "nodemailer": "^3.0.2"
   },
   "devDependencies": {
