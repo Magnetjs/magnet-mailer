@@ -33,7 +33,7 @@
   },
   "dependencies": {
     "magnet-core": "^3.3.0",
-    "nodemailer": "^3.0.2"
+    "nodemailer": "^3.1.8"
   },
   "devDependencies": {
     "concurrently": "^3.3.0",
