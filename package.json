@@ -1,6 +1,6 @@
 {
   "name": "magnet-mailer",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "Magnet adapter for nodemailer + email template",
   "keywords": [
     "email",
@@ -36,6 +36,7 @@
     "nodemailer": "^4.0.1"
   },
   "devDependencies": {
+    "@types/node": "^8.0.19",
     "concurrently": "^3.3.0",
     "nodemon": "^1.9.1",
     "standard": "^10.0.2",
