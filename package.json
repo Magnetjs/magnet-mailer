@@ -1,6 +1,6 @@
 {
   "name": "magnet-mailer",
-  "version": "2.3.1",
+  "version": "3.0.0",
   "description": "Magnet adapter for nodemailer + email template",
   "keywords": [
     "email",
@@ -32,7 +32,7 @@
     "watch-test": "nodemon --delay 0.5 --ignore src --exec babel-node tests/index.js | tap-spec"
   },
   "dependencies": {
-    "magnet-core": "^3.3.0",
+    "magnet-core": "^4.0.1",
     "nodemailer": "^4.0.1"
   },
   "devDependencies": {

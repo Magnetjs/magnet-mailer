@@ -1,18 +1,19 @@
 import { Module } from 'magnet-core/module'
 import * as nodemailer from 'nodemailer'
 
-import defaultConfig from './config/mailer'
-
 export default class Mailer extends Module {
+  init () {
+    this.moduleName = 'nodemailer'
+    this.defaultConfig = __dirname
+  }
+
   async setup () {
-    const config = this.prepareConfig('mailer', defaultConfig)
-
     // create reusable transporter method (opens pool of SMTP connections)
-    this.app.nodemailer = nodemailer.createTransport(config.transport)
+    this.insert(nodemailer.createTransport(this.config.transport))
 
-    if (config.plugins) {
-      for (let pluginKey of Object.keys(config.plugins)) {
-        this.app.nodemailer.use(pluginKey, config.plugins[pluginKey])
+    if (this.config.plugins) {
+      for (let pluginKey of Object.keys(this.config.plugins)) {
+        this.app.nodemailer.use(pluginKey, this.config.plugins[pluginKey])
       }
     }
 
